@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/holo_blue_light">
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Edit Name &amp; Pin"
+        android:textSize="30sp"
+        android:paddingTop="16dp"
+        />
+
+    <TextView
+        android:id="@+id/idTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Id: 0000"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:gravity="center"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        app:counterEnabled="true"
+        app:counterMaxLength="15"
+        app:helperText = "Name can contain up to 15 digits"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameTi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType = "text"
+            android:maxLength="15"
+            android:hint="Name"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        app:counterEnabled="true"
+        app:counterMaxLength="4"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:helperText="Pin can only contain digits from 1-4">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pinTi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberPassword"
+            android:maxLength="4"
+            android:digits = "1234"
+            android:hint="Pin"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/saveBt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:onClick="saveInput"
+        android:layout_marginVertical="16dp"/>
+
+    <TextView
+        android:id="@+id/entryPinLabelTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Your entry pin is:"
+        android:textSize="25sp"
+        android:paddingTop="16dp"/>
+
+    <TextView
+        android:id="@+id/entryPinTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="TextView"
+        android:textSize="25sp"
+        android:padding="16dp"/>/>
+
+</LinearLayout>
