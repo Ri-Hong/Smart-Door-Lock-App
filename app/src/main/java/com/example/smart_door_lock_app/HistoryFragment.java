@@ -48,6 +48,7 @@ public class HistoryFragment extends Fragment {
         //Populate arrayList
         List<ContentValues> userDataList = dbHelper.getHistory();
         int image = 0;
+        String prevTime = "Placeholder";
 
         while (userDataList.size() > 0) {
             ContentValues cv = userDataList.remove(userDataList.size() - 1); //Get last element
@@ -61,7 +62,10 @@ public class HistoryFragment extends Fragment {
                 image = R.drawable.unlocked;
             }
 
-            arrayList.add(new HistoryEntry(image, name, time));
+            if (!prevTime.equals(time)){ //Prevent duplicates
+                arrayList.add(new HistoryEntry(image, name, time));
+            }
+            prevTime = time;
         }
 
         EntryAdapter entryAdapter = new EntryAdapter(getContext(), R.layout.list_row, arrayList);
